@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PriceCompare • Home</title>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="container">
+<header class="topbar">
+<h1>PriceCompare</h1>
+<p class="subtitle">Upload a product image, detect it, and compare prices across stores.</p>
+</header>
+
+
+<main class="card grid-2">
+<section class="upload-panel">
+<h2>Upload product image</h2>
+<div id="dropzone" class="dropzone">
+<input id="fileInput" type="file" accept="image/*" hidden>
+<button id="pickBtn" class="btn">Choose image</button>
+<p>or drag & drop here</p>
+<canvas id="previewCanvas" class="preview-canvas" hidden></canvas>
+<img id="previewImg" class="preview-img" alt="preview" hidden>
+</div>
+
+
+<div class="controls">
+<button id="detectBtn" class="btn primary" disabled>Detect & Compare</button>
+<div id="loading" class="loading" hidden>Loading model...</div>
+</div>
+
+
+<div id="predictions" class="predictions"></div>
+</section>
+
+
+<section class="results-panel">
+<h2>Comparison Results</h2>
+<div id="results" class="results">Search results will appear here after detection.</div>
+</section>
+</main>
+
+
+<footer class="footer">Built with ❤️ • Client-side recognition using TensorFlow.js</footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.20.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+</body>
+</html>

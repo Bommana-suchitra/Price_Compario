@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compario | Upload Image</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+<div class="center">
+    <div class="card">
+
+        <h2>📸 Upload Product Image</h2>
+
+        <form method="POST" enctype="multipart/form-data" action="{% url 'result' %}">
+            {% csrf_token %}
+
+            <div class="upload-box">
+                <label class="file-label" for="fileInput">Choose Image</label>
+                <input type="file" id="fileInput" name="image" accept="image/*"
+                       onchange="previewImage(this)" required>
+            </div>
+
+            <img id="previewImg" />
+
+            <button type="submit" class="btn">
+                🔍 Upload & Recognize
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

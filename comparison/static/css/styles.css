@@ -1,0 +1,275 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* =========================
+   CENTER CONTAINER
+========================= */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* =========================
+   CARD LAYOUT
+========================= */
+
+.card {
+    width: 360px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.8s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8b62ff, #6cc6ff);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.small-btn {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* =========================
+   UPLOAD SECTION
+========================= */
+
+.upload-box {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed #8b62ff;
+    border-radius: 15px;
+    text-align: center;
+    background: #fafaff;
+    transition: 0.3s ease;
+}
+
+.upload-box:hover {
+    background: #f1ecff;
+    transform: scale(1.02);
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #ff8eb3, #ffa85c);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.file-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#fileInput {
+    display: none;
+}
+
+#fileName {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+}
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+#previewImg {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 12px;
+    display: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   RESULT PAGE LAYOUT
+========================= */
+
+#ecomHome {
+    padding: 40px;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Uploaded image on result page */
+#ecomHome > div img {
+    max-width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   DETECTED PRODUCT
+========================= */
+
+.detected-name {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+.horizontal-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 10px;
+}
+
+.horizontal-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-row::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+.horizontal-row .card {
+  min-width: 260px;
+  width: 260px; 
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+
+    #ecomHome {
+        padding: 20px;
+    }
+}
+.amazon { background: #ff9900; }
+.flipkart { background: #2874f0; }
