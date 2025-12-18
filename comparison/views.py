@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+from django.conf import settings
 
 # Load MobileNet once globally
 model = tf.keras.applications.mobilenet.MobileNet(weights="imagenet")
@@ -47,7 +48,7 @@ def amazon_search(query):
     }
 
     headers = {
-        "x-rapidapi-key": "b51872216bmshe7a5446be4e8a38p1df6cbjsn63058b1e4f09",
+        "x-rapidapi-key":settings.GOOGLE_API_KEY,
        "x-rapidapi-host": "real-time-amazon-data.p.rapidapi.com"
     }
     results = []
@@ -93,7 +94,7 @@ def walmart_search(query):
     }
 
     headers = {
-        "x-rapidapi-key": "b51872216bmshe7a5446be4e8a38p1df6cbjsn63058b1e4f09",
+        "x-rapidapi-key": settings.GOOGLE_API_KEY,
         "x-rapidapi-host": "realtime-walmart-data.p.rapidapi.com"
     }
 
