@@ -6,4 +6,4 @@ class ProductImage(models.Model):
     #predicted_name = models.CharField(max_length=255, null=True, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.predicted_name or f"Image {self.id}"
+        return f"Image {self.id} - {self.uploaded_at}"

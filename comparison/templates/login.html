@@ -1,0 +1,35 @@
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- HEADER -->
+
+<div class="center">
+    <div class="card">
+        <h2>User Login</h2>
+
+        <form>
+            <input type="email" placeholder="Email" required
+                   style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ccc;">
+
+            <input type="password" placeholder="Password" required
+                   style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ccc;">
+
+            <button class="btn">Login</button>
+        </form>
+
+        <p style="text-align:center; margin-top:15px;">
+            Don’t have an account? <a href="#">Register</a>
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>

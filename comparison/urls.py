@@ -6,3 +6,4 @@ urlpatterns = [
     path("upload/", views.upload_page, name="upload"),
     path("result/", views.result_page, name="result"),
 ]
+ 
