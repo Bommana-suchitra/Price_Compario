@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Price Compario</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="login-page">
+
+    <div class="glass-card">
+        <h2>Create Account ✨</h2>
+        <p>Join Price Compario and start saving smarter.</p>
+
+        <!-- ERROR MESSAGE -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="error-msg">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group password-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="regPassword" placeholder="Password" required>
+                <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('regPassword', this)"></i>
+            </div>
+
+            <div class="input-group password-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="confirm_password" id="regConfirm" placeholder="Confirm Password" required>
+                <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('regConfirm', this)"></i>
+            </div>
+
+            <button type="submit" class="login-btn">Register</button>
+        </form>
+
+        <p class="register-text">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+
+</div>
+
+<script>
+function togglePassword(fieldId, icon) {
+    const input = document.getElementById(fieldId);
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.replace("fa-eye-slash", "fa-eye");
+    }
+}
+</script>
+
+</body>
+</html>

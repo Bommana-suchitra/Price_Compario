@@ -3,145 +3,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SmartCompare | AI Price Comparison</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+    <title>Price Compario | AI Price Comparison</title>
 
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="main-header">
-    <div class="logo">SmartCompare</div>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="logo">Price<span>Compario</span></div>
 
-    <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#workflow">How It Works</a>
-        <a href="#features">Features</a>
-        <a href="#" class="nav-cta">Compare</a>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li>
+            <button id="themeToggle" title="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </li>
+    </ul>
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+<header class="hero">
+    <div class="overlay">
+        <div class="hero-content">
+
+            <h1>Shop Smarter Pay Less</h1>
+            <p>
+                One image. Multiple prices. Best deal.
+            </p>
+
+            <a href="{% url 'login' %}" class="btn-primary">Start Comparing</a>
+
+            <!-- Glassmorphism CTA -->
+            <div class="glass-cta">
+                <h3>AI-Powered Price Comparison</h3>
+                <p>
+                    Upload a product image and instantly compare prices from
+                    Amazon, Google Shopping, and eBay.
+                </p>
+                <a href="{% url 'login' %}" class="glass-btn">Upload Product</a>
+            </div>
+
+            <!-- Platform Logos -->
+            <div class="platforms">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Shopping">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
+            </div>
+
+        </div>
+    </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero-advanced">
-    <div class="hero-left">
-        <span class="pill">AI Powered Price Intelligence</span>
-
-        <h1>
-            Find the Best Price <br>
-            <span>Before You Buy</span>
-        </h1>
-
-        <p>
-            Upload a product image and instantly compare prices across
-            top e-commerce platforms using AI-based recognition.
-        </p>
-
-        <div class="hero-actions">
-            <a href="#" class="btn-primary">Start Comparing</a>
-            <a href="#workflow" class="btn-outline">See How It Works</a>
-        </div>
-
-        <div class="hero-stats">
-            <div>
-                <strong>99%</strong>
-                <span>Accuracy</span>
-            </div>
-            <div>
-                <strong>2s</strong>
-                <span>Response</span>
-            </div>
-            <div>
-                <strong>100+</strong>
-                <span>Products</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="hero-right">
-        <div class="floating-card">
-            <small>Detected Product</small>
-            <h4>Prestige Mixer Grinder</h4>
-            <span>Best Price: ₹3,999</span>
-        </div>
-    </div>
-</section>
-
-<!-- ================= WORKFLOW ================= -->
-<section id="workflow" class="workflow">
-    <h2>How SmartCompare Works</h2>
-
-    <div class="steps">
-        <div class="step">
-            <span>01</span>
-            <h4>Upload Image</h4>
-            <p>Upload a clear product image for detection.</p>
-        </div>
-
-        <div class="step">
-            <span>02</span>
-            <h4>AI Recognition</h4>
-            <p>AI identifies product & category instantly.</p>
-        </div>
-
-        <div class="step">
-            <span>03</span>
-            <h4>Compare Prices</h4>
-            <p>Fetch best prices from multiple platforms.</p>
-        </div>
-    </div>
-</section>
-
 <!-- ================= FEATURES ================= -->
-<section id="features" class="features">
-    <h2>Why Choose SmartCompare?</h2>
-
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h3>📷 Image Recognition</h3>
-            <p>Advanced ML models detect products accurately.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>⚡ Fast Comparison</h3>
-            <p>Real-time price fetching within seconds.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>🔒 Reliable Results</h3>
-            <p>Trusted data sources for accurate pricing.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="final-cta">
-    <h2>Stop Overpaying for Products</h2>
-    <p>Let AI find the best deal for you.</p>
-    <a href="#" class="btn-primary big">Compare Now</a>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer-advanced">
-    <div>
-        <h4>SmartCompare</h4>
-        <p>AI-powered price comparison platform.</p>
+<section class="features">
+    <div class="feature-card">
+        <i class="fa-solid fa-camera"></i>
+        <h3>AI Product Recognition</h3>
+        <p>
+            Upload any product image and our AI accurately identifies the product.
+        </p>
     </div>
 
-    <div>
-        <h5>Project</h5>
-        <a href="#">About</a>
-        <a href="#">Features</a>
-        <a href="#">Workflow</a>
+    <div class="feature-card">
+        <i class="fa-solid fa-tags"></i>
+        <h3>Real-Time Price Comparison</h3>
+        <p>
+            Compare prices across Amazon, Google Shopping, and eBay instantly.
+        </p>
     </div>
 
-    <div>
-        <h5>Technology</h5>
-        <span>Django</span>
-        <span>Machine Learning</span>
-        <span>REST APIs</span>
-    </div>
-</footer>
-
-</body>
-</html>
+    <div class="feature-card">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Smart Buyin

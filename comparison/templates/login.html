@@ -1,35 +1,66 @@
-{% load static %}
+
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Login | Price Compario</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<!-- HEADER -->
+<div class="login-page">
 
-<div class="center">
-    <div class="card">
-        <h2>User Login</h2>
+    <div class="glass-card">
+        <h2>Welcome Back 👋</h2>
+        <p>Login to continue comparing prices smarter.</p>
 
-        <form>
-            <input type="email" placeholder="Email" required
-                   style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ccc;">
+        <!-- ERROR MESSAGE -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="error-msg">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
 
-            <input type="password" placeholder="Password" required
-                   style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ccc;">
+        <form method="post">
+            {% csrf_token %}
 
-            <button class="btn">Login</button>
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group password-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="loginPassword" placeholder="Password" required>
+                <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('loginPassword', this)"></i>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
         </form>
 
-        <p style="text-align:center; margin-top:15px;">
-            Don’t have an account? <a href="#">Register</a>
+        <p class="register-text">
+            New user?
+            <a href="{% url 'register' %}">Create an account</a>
         </p>
     </div>
+
 </div>
 
+<script>
+function togglePassword(fieldId, icon) {
+    const input = document.getElementById(fieldId);
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.replace("fa-eye-slash", "fa-eye");
+    }
+}
+</script>
 
 </body>
 </html>

@@ -34,3 +34,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+function previewImage(input) {
+    const preview = document.getElementById("previewImg");
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function startAI() {
+    const loader = document.getElementById("aiLoader");
+    const preview = document.getElementById("preview");
+
+    loader.style.display = "flex";
+
+    setTimeout(() => {
+        loader.style.display = "none";
+        preview.style.display = "block";
+        preview.scrollIntoView({ behavior: "smooth" });
+    }, 3000);
+}

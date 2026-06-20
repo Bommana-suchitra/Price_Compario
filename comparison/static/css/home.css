@@ -1,0 +1,301 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #0F172A;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+body.dark-mode {
+    background: #0B1220;
+    color: #E5E7EB;
+}
+
+body.dark-mode .navbar,
+body.dark-mode footer {
+    background: #020617;
+}
+
+body.dark-mode .feature-card {
+    background: #020617;
+    color: #E5E7EB;
+}
+
+body.dark-mode .platforms img {
+    background: #ffffff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #2563EB;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0F172A;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563EB;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* =========================
+   HERO SECTION (ADVANCED)
+========================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top: 70px;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.75)),
+        url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+body.dark-mode .hero::after {
+    background: #0B1220;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    margin-top: 60px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 1.2s ease;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 720px;
+    color: #E5E7EB;
+    margin-bottom: 22px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+    background: linear-gradient(135deg, #2563EB, #0EA5E9);
+    color: #ffffff;
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+}
+
+/* =========================
+   GLASSMORPHISM CTA
+========================= */
+.glass-cta {
+    max-width: 520px;
+    padding: 32px;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.glass-cta h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.glass-cta p {
+    font-size: 0.95rem;
+    color: #E5E7EB;
+    margin-bottom: 18px;
+}
+
+.glass-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #2563EB, #0EA5E9);
+    color: #ffffff;
+    padding: 12px 26px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================
+   PLATFORM LOGOS
+========================= */
+.platforms {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.platforms img {
+    height: 38px;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+.features {
+    padding: 90px 10%;
+    background: #F1F5F9;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.feature-card i {
+    font-size: 2.4rem;
+    color: #2563EB;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #0F172A;
+    color: #CBD5F5;
+    padding: 30px 10%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .features {
+        padding: 70px 6%;
+    }
+
+    .platforms {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

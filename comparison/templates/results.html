@@ -2,81 +2,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compario | Results</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compario | Price Comparison</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/result.css' %}">
 </head>
-
 <body>
 
-<div id="ecomHome">
+<div class="container">
 
-  <!-- Uploaded Image -->
-  {% if image_url %}
-  <div style="text-align:center; margin-bottom:25px;">
-    <img src="{{ image_url }}"
-         style="max-width:280px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
-  </div>
-  {% endif %}
+    <h2>🧠 Recognized Product</h2>
+    <p class="confidence">Confidence: {{ product.confidence|floatformat:2 }}</p>
 
-  <!-- Recognized Product -->
-  <h2>🧠 Recognized Product</h2>
-  <p class="detected-name">{{ product_name }}</p>
+    {% if api_problem %}
+        <div class="alert">
+            Some marketplaces are currently unavailable.
+            {% if failed_services %}
+                <div>Unavailable: {{ failed_services|join:", " }}</div>
+            {% endif %}
+        </div>
+    {% endif %}
 
-  <h2 style="margin-top:25px;">💰 Price Comparison</h2>
+    <!-- HORIZONTAL CARDS -->
+    <div class="horizontal-cards">
+        {% for item in results %}
+        <div class="platform-card {% if item == best %}best-card{% endif %}">
+            <div class="platform-logo">
+                <img src="{% static 'images/'|add:item.source|lower|add:'.png' %}" alt="{{ item.source }}">
+            </div>
 
-  <!-- ================= AMAZON RESULTS ================= -->
-  <h3 class="section-title">Amazon Results</h3>
-
-  {% if amazon_results %}
-  <div class="horizontal-row">
-    {% for item in amazon_results %}
-    <div class="card">
-      <img src="{{ item.image }}" alt="Amazon product">
-      <h3>{{ item.title|truncatechars:45 }}</h3>
-
-      <p class="price">{{ item.price }}</p>
-      <a href="{{ item.link }}" target="_blank">View on Amazon</a>
-    </div>
-    {% endfor %}
-  </div>
-  {% else %}
-    <p>No Amazon products found.</p>
-  {% endif %}
-
-
- <!-- ================= FLIPKART RESULTS ================= -->
-<h3 class="section-title" style="margin-top:40px;">Flipkart Results</h3>
-
-{% if flipkart_results %}
-  <div class="horizontal-row">
-    {% for item in flipkart_results %}
-      <div class="card">
-        <img src="{{ item.image }}" alt="Flipkart product">
-        <h3>{{ item.title }}</h3>
-        <p class="price">{{ item.price }}</p>
-        <a href="{{ item.link }}" target="_blank">View on Flipkart</a>
-      </div>
-    {% endfor %}
-  </div>
+            <div class="product-info">
+                <img src="{{ item.image|default:'' }}" 
+                     onerror="this.onerror=null;this.src='{% static 'images/'|add:item.source|lower|add:'.png' %}';" 
+                     alt="Product" class="product-img">
+                <div class="details">
+                    <span class="price">₹ {{ item.price }} {% if item == best %}<span class="best-tag">(Best)</span>{% endif %}</span>
+                    {% if item.stars %}
+    <span class="stars">
+        {% for star in item.stars %}
+            {{ star }}
+        {% endfor %}
+    </span>
+    <span class="rating-text">({{ item.rating }}/5)</span>
 {% else %}
-  <p>No Flipkart products found.</p>
+    <span class="no-rating">No rating</span>
 {% endif %}
 
+                </div>
+            </div>
 
+            <div class="buy-btn">
+                <a href="{{ item.link }}" target="_blank">Buy</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-
-  <!-- Back Button -->
-  <div style="margin:35px 0; text-align:center;">
-    <a href="{% url 'upload' %}" class="btn">
-      ⬅ Upload Another Image
-    </a>
-  </div>
+    <div class="upload-again">
+        <a href="{% url 'upload' %}" class="btn btn-outline">⬅ Upload Another Image</a>
+    </div>
 
 </div>
-
 </body>
 </html>

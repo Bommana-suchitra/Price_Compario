@@ -2,40 +2,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Compario | Upload Image</title>
+  <meta charset="UTF-8">
+  <title>Price Compario | Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Upload CSS -->
+  <link rel="stylesheet" href="{% static 'css/upload.css' %}">
 </head>
-
 <body>
 
-<div class="center">
-    <div class="card">
+<!-- ================= NAVBAR ================= -->
+<header class="main-navbar">
+  <div class="nav-left">
+    <i class="fa-solid fa-magnifying-glass-dollar nav-icon"></i>
+    <span class="logo-text">AI Price Compare</span>
+  </div>
 
-        <h2>📸 Upload Product Image</h2>
+  <nav class="nav-links">
+    <a href="{% url 'home' %}">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
 
-        <form method="POST" enctype="multipart/form-data" action="{% url 'result' %}">
-            {% csrf_token %}
+    <a href="{% url 'upload' %}" class="active">
+      <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+    </a>
 
-            <div class="upload-box">
-                <label class="file-label" for="fileInput">Choose Image</label>
-                <input type="file" id="fileInput" name="image" accept="image/*"
-                       onchange="previewImage(this)" required>
-            </div>
+    <a href="{% url 'logout' %}" class="logout">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+  </nav>
+</header>
 
-            <img id="previewImg" />
+<!-- ================= UPLOAD SECTION ================= -->
+<section class="upload-section">
+  <div class="upload-card">
 
-            <button type="submit" class="btn">
-                🔍 Upload & Recognize
-            </button>
-        </form>
+    <h2 class="upload-title">
+      <i class="fa-solid fa-image"></i>
+      Upload Product Image
+    </h2>
 
-    </div>
-</div>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
 
-<script src="{% static 'js/app.js' %}"></script>
+      <label class="upload-box">
+        <input type="file" name="image" accept="image/*" required hidden>
+        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+        <p>Click to choose an image</p>
+        <span>JPG, PNG supported</span>
+      </label>
+
+      <button type="submit" class="upload-btn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Analyze Price
+      </button>
+    </form>
+
+  </div>
+</section>
+
 </body>
 </html>

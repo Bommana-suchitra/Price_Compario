@@ -1,0 +1,157 @@
+/* =========================
+   GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+.login-page {
+    height: 100vh;
+    background:
+        linear-gradient(rgba(2,6,23,0.8), rgba(2,6,23,0.8)),
+        url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+.glass-card {
+    width: 380px;
+    padding: 35px 30px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+
+    color: #ffffff;
+    text-align: center;
+}
+
+/* =========================
+   TEXT
+========================= */
+.glass-card h2 {
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.glass-card p {
+    font-size: 0.95rem;
+    color: #E5E7EB;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    border-radius: 30px;
+    padding: 12px 18px;
+    margin-bottom: 16px;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #E5E7EB;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.input-group input::placeholder {
+    color: #CBD5F5;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.login-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+
+    background: linear-gradient(135deg, #2563EB, #0EA5E9);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.6);
+}
+
+/* =========================
+   REGISTER LINK
+========================= */
+.register-text {
+    margin-top: 18px;
+    font-size: 0.9rem;
+}
+
+.register-text a {
+    color: #93C5FD;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+/* =========================
+   ERROR MESSAGE
+========================= */
+.error-msg {
+    background: rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #FEE2E2;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    cursor: pointer;
+    color: #CBD5F5;
+}
